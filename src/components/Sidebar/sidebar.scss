@@ -1,0 +1,146 @@
+@import '../../util/util';
+
+
+.sidebar {
+
+  background-color: $bg-primary;
+  border-right: $text-secondary 1px solid;
+  height: 100vh;
+  padding: 1rem;
+  width: 3.75rem;
+  transition: width 0.4s ease-in-out;
+
+  span {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .sidebar-links {
+    height: 90vh;
+
+    @include breakpoint(1920px) {
+      height: 87vh;
+    }
+
+    .s-bottom {
+      margin-top: auto;
+      @include lh {
+        margin-top: unset;
+        margin-bottom: 2rem;
+      }
+    }
+
+    &, .s-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+  }
+
+  .s-link {
+    align-items: center;
+    border-radius: 4px;
+    color: $text-secondary;
+    cursor: pointer;
+    display: flex;
+    font-weight: 500;
+    gap: .5rem;
+    padding: .5rem;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+    .s-icon {
+      font-size: 2.5rem;
+      @include md {
+        font-size: 1.5rem;
+      }
+      @include lh {
+        font-size: 1.5rem;
+      }
+    }
+    &:hover {
+      background-color: $text-secondary;
+      color: $bg-secondary;
+      transform: scale(.95);
+    }
+    @include lh {
+      margin-left: 0.5rem;
+    }
+  }
+
+  // LightMode Code
+  &.light {
+    background-color: white;
+    border-right: #23232e57 1px solid;
+
+    .s-link {
+      color: $bg-primary;
+
+      &:hover {
+        background-color: $bg-primary;
+        color: white;
+      }
+    }
+
+    .logo {
+      .left, .right {
+        background-color: $bg-primary;
+      }
+    }
+  }
+
+  &:hover {
+    width: 200px;
+    span {
+      opacity: 1;
+    }
+  }
+
+  @include l {
+    align-items: center;
+    bottom: 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 40px;
+    display: flex;
+    height: 50px;
+    width: 100vw;
+    top: unset;
+    padding: 1rem 0;
+    position: fixed;
+    z-index: 4;
+    span {
+      display: none;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    .sidebar-links {
+      height: unset;
+      justify-content: center;
+      width: 100%;
+      margin: auto;
+      &, .s-bottom {
+        align-items: center;
+        flex-direction: row;
+        gap: 2rem;
+      }
+    }
+
+    &:hover {
+      width: 100%;
+      span {
+        display: none;
+      }
+    }
+  }
+
+  @include md {
+    height: 35px;
+    padding: 0.5rem;
+    .sidebar-links {
+      &, .s-bottom {
+        gap: 1rem;
+      }
+    }
+  }
+}

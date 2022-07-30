@@ -1,0 +1,26 @@
+.modal-root {
+  background-color: rgba(0, 0, 0, 0.427);
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+
+  .modal {
+    align-items: center;
+    background-color: white;
+    border-radius: 4px;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 400;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20rem;
+    padding: 2rem;
+    top: 50%;
+    z-index: 5;
+  }
+}

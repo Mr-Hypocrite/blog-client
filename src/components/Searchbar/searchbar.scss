@@ -1,0 +1,93 @@
+@import "../../util/util";
+
+.searchbar {
+  background-color: $bg-primary;
+  border-bottom: 1px solid $text-secondary;
+  justify-content: space-between;
+  margin-bottom:1.5rem;
+  padding: 1.5rem 0.8rem;
+  position: sticky;
+  top: 0;
+
+  &, .search-right {
+    align-items: center;
+    display: flex;
+  }
+
+  .search-input {
+    align-items: center;
+    border: 1px solid $text-secondary;
+    border-radius: 20px;
+    display: flex;
+    padding: 0.5rem;
+    width: fit-content;
+  
+    input {
+      background-color: transparent;
+      color: $text-secondary;
+      outline: none;
+      border: none;
+      font-size: 1rem;
+    }
+  }
+
+  .search-right {
+    gap: 1rem;
+    .searchbar-icon {
+      border-radius: 50%;
+      font-size: 2rem;
+      padding: 0.4rem;
+      &:hover {
+        background-color: $text-secondary;
+        color: $bg-primary;
+      }
+    }
+  }
+
+  .searchbar-icon {
+    color: $text-secondary;
+    cursor: pointer;
+  }
+
+  .notification {
+    position: relative;
+
+    .noti-count {
+      align-items: center;
+      background-color: red;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      font-weight: 500;
+      height: 0.8rem;
+      justify-content: center;
+      padding: 0.2rem;
+      position: absolute;
+      pointer-events: none;
+      right: 0;
+      top: 0;
+      width: 0.8rem;
+    }
+  }
+
+  &.light {
+    background-color: white;
+    border-bottom: 1px solid $bg-primary;
+    .search-input {
+      border: 1px solid $bg-primary;
+    }
+    input {
+      color: $bg-primary;
+    }
+    .searchbar-icon {
+      color: $bg-primary;
+    }
+    .search-right {
+      .searchbar-icon:hover {
+        background-color: $bg-primary;
+        color: $text-secondary;
+      }
+    }
+  }
+
+}
