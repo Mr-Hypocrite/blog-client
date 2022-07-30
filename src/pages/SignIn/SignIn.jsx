@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export const SignIn = () => {
   const { data, postData, error } = useFetch(
-    `http://localhost:5000/auth/signIn`,
+    `auth/signIn`,
     "POST"
   );
 

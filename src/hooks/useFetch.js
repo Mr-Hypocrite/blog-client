@@ -23,6 +23,7 @@ const useFetch = (url, method = "GET") => {
     const fetchData = async (fetchOptions) => {
       setPending(true);
       if (url) {
+        console.log(url);
         try {
           const response = await fetch(url, {
             ...fetchOptions,

@@ -1,8 +1,8 @@
 import "./sidebar.scss";
 import {
   DashboardTwoToneIcon,
-  DynamicFeedTwoToneIcon,
   EditTwoToneIcon,
+  DarkModeIcon,
   LogoutTwoToneIcon,
   SettingsOutlinedIcon,
 } from "../../icons";
@@ -14,7 +14,7 @@ import useFetch from "../../hooks/useFetch";
 export const SideBar = () => {
   const [fetchurl, setFetchUrl] = useState(``);
   const [logout, setLogout] = useState(false);
-  const [color, setColor] = useState(false);
+  // const [color, setColor] = useState(false);
 
   const { user, dispatch } = useContext(AuthContext);
   const { theme, utilDispatch } = useContext(UtilContext);
@@ -26,7 +26,7 @@ export const SideBar = () => {
       utilDispatch({ type: "modal", payload: "Logged Out" });
       dispatch({ type: "LOGOUT" });
     }
-  }, [logout, dispatch, data, utilDispatch, color]);
+  }, [logout, dispatch, data, utilDispatch]);
 
   return (
     <div className={`sidebar ${theme ? `light` : `dark`}`}>
@@ -39,22 +39,21 @@ export const SideBar = () => {
           <DashboardTwoToneIcon className="s-icon" />
           <span>Dashboard</span>
         </Link>
-        <Link to="/feed" className="s-link">
-          <DynamicFeedTwoToneIcon className="s-icon" />
-          <span>Feed</span>
+        <Link to="/settings" className="s-link">
+          <SettingsOutlinedIcon className="s-icon" />
+          <span>Settings</span>
         </Link>
         <Link to="/create" className="s-link">
           <EditTwoToneIcon className="s-icon" />
           <span>Create</span>
         </Link>
         <div className="s-bottom">
-          <Link
-            to="/settings"
+          <div
             className="s-link"
           >
-            <SettingsOutlinedIcon className="s-icon" />
-            <span>Settings</span>
-          </Link>
+            <DarkModeIcon className="s-icon" />
+            <span>Theme</span>
+          </div>
           {user && (
             <div
               className="s-link"
